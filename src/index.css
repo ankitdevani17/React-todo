@@ -30,3 +30,22 @@ h1{
   color:#00203f;
   background-color:#ADEFD1FF;
 }
+ol{
+  list-style-type: none;
+}
+ol li {
+  padding-left:0 px;
+  text-align: left;
+  display:flex;
+  align-items:center;
+
+}
+.todo_style{
+  display:flex;
+  flex-direction:row;
+  justify-content:left;
+  align-items: center;
+}
+i{
+  padding: 10px;
+}
