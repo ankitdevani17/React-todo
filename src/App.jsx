@@ -6,6 +6,16 @@ const App = () => {
     const itemEvent = (event) => {  // callback function se event me value store kar raha hu jo bhi input se nikla
        setInput(event.target.value); // taking value from whatever input users enters and givign it to setInput
     };
+
+    const deleteitems = (id) =>{
+        console.log("deleted");
+        
+        setitems((olditems)=>{
+            return olditems.filter((arrElem, index)=>{
+                return index !== id;
+            });
+        });
+    };
      
     const listofitems  = () =>{    // to display items as list
         setitems((olditems)=>{   // accessing prev state value of line 5 ka array into  olditems
@@ -21,8 +31,11 @@ const App = () => {
                 <button onClick={listofitems}> + </button>
                 <ol>
                      {
-                        items.map((itemval) => {
-                           return <Todolist text={itemval}/>; 
+                        items.map((itemval,index) => {
+                           return <Todolist text={itemval}
+                               key ={index}
+                               onSelect ={deleteitems}
+                           />; 
                         })
                     }
                 </ol>
