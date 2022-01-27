@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Todolist from "./Todolist";
 const App = () => { 
-    const [input, setInput] = useState("chal jana bhai ");
+    const [input, setInput] = useState("Ankit Devani");
     const [items,setitems] =useState([] ); // to create an empty array as default
     const itemEvent = (event) => {  // callback function se event me value store kar raha hu jo bhi input se nikla
        setInput(event.target.value); // taking value from whatever input users enters and givign it to setInput
@@ -9,12 +9,10 @@ const App = () => {
 
     const deleteitems = (id) =>{
         console.log("deleted");
-        
-        setitems((olditems)=>{
-            return olditems.filter((arrElem, index)=>{
-                return index !== id;
-            });
-        });
+        console.log(id);
+        setitems(items.filter((arrElem, index)=>{
+                return index != id;
+            }));
     };
      
     const listofitems  = () =>{    // to display items as list
@@ -33,7 +31,7 @@ const App = () => {
                      {
                         items.map((itemval,index) => {
                            return <Todolist text={itemval}
-                               key ={index}
+                               id ={index}
                                onSelect ={deleteitems}
                            />; 
                         })
